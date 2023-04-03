@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { ModalOverlay, ModalWrap } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
+
 export default function Modal({ closeModal, largeUrl, alt }) {
   useEffect(() => {
     function onCloseModal(e) {

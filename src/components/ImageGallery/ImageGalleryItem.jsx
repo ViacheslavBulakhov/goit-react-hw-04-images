@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Modal from '../Modal/Modal';
+import Modal from 'components/Modal/Modal';
 import { useState } from 'react';
 
 import {
