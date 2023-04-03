@@ -6,6 +6,12 @@ import { ModalOverlay, ModalWrap } from './Modal.styled';
 const modalRoot = document.querySelector('#modal-root');
 export default function Modal({ closeModal, largeUrl, alt }) {
   useEffect(() => {
+    function onCloseModal(e) {
+      if (e.code === 'Escape') {
+        closeModal();
+      }
+    }
+
     window.addEventListener('keydown', onCloseModal);
 
     return () => {
@@ -13,14 +19,14 @@ export default function Modal({ closeModal, largeUrl, alt }) {
     };
   }, []);
 
-  function onCloseModal(e) {
-    if (e.target === e.currentTarget || e.code === 'Escape') {
+  function onClickCloseModal(e) {
+    if (e.target === e.currentTarget) {
       closeModal();
     }
   }
 
   return createPortal(
-    <ModalOverlay onClick={onCloseModal}>
+    <ModalOverlay onClick={onClickCloseModal}>
       <ModalWrap>
         <img src={largeUrl} alt={alt} />
       </ModalWrap>
